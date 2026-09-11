@@ -386,7 +386,7 @@ footer {
 </nav>
 
 <header class="hero">
-  <div class="venue">CoRL 2026 Submission</div>
+  <div class="venue">ICRA 2026 Submission</div>
   <h1>Goal2Pixel: Grounding Goals to Pixels for Vision-Language Navigation</h1>
   <p class="subtitle">A pure pixel-based paradigm that turns high-level vision-language reasoning into navigable image goals.</p>
   <p class="authors">Anonymous Author(s)</p>
@@ -401,7 +401,7 @@ footer {
   <section class="section" id="abstract">
     <h2>Abstract</h2>
     <div class="abstract">
-        <p>Vision-language models (VLMs) have become a common foundation for vision-and-language navigation in continuous environments (VLN-CE). Yet most VLM-based methods cast navigation as low-level action prediction, an interface that is ambiguous, tied to short-horizon motion primitives, and inefficient due to repeated VLM querying. We propose <strong>Goal2Pixel</strong>, a pure pixel-based paradigm that reformulates VLN-CE as <em>navigable pixel grounding</em>. Rather than predicting actions, Goal2Pixel uses the image plane as a unified spatial interface between VLM reasoning and robot motion: the model predicts a visible navigable pixel to the agent, which is back-projected into a 3D waypoint for forward navigation. For non-forward actions, we append auxiliary directive regions to the image plane, where the left/right/bottom regions are interpreted as turning left, turning right, and stopping, respectively. To enable long-horizon navigation, we propose a visibility-aware keyframe memory for compact and informative history representation. To adapt pretrained VLMs to navigable pixel grounding, we introduce semantic embeddings and coordinate-aware auxiliary losses. Goal2Pixel achieves competitive state-of-the-art performance while requiring fewer VLM inference calls than prior methods. On R2R-CE Val-Unseen it achieves 54.1% SR and 52.5% SPL with just 7.75 VLM calls per episode, 6&times; fewer than the 46.62 required by direct action prediction at 32.9% SR. The same trend holds on RxR-CE.</p>
+        <p>Vision-language models (VLMs) have become a common foundation for vision-and-language navigation in continuous environments (VLN-CE). Yet most VLM-based methods cast navigation as low-level action prediction, an interface that is ambiguous, tied to short-horizon motion primitives, and inefficient due to repeated VLM querying. We propose <strong>Goal2Pixel</strong>, a pure pixel-based paradigm that reformulates VLN-CE as <em>navigable pixel grounding</em>. Rather than predicting actions, Goal2Pixel uses the image plane as a unified spatial interface between VLM reasoning and robot motion: the model predicts a visible navigable pixel, which is back-projected into a 3D waypoint for forward navigation. Non-forward actions are encoded by auxiliary left/right/bottom regions for turning and stopping. To support long-horizon navigation, we propose ViKeyMem, a visibility-aware keyframe memory, achieving a favorable performance&ndash;efficiency trade-off while reducing training cost by over 50%. To adapt pretrained VLMs to navigable pixel grounding, we introduce semantic embeddings and coordinate-aware auxiliary losses. Among methods trained without external data, Goal2Pixel achieves competitive state-of-the-art performance on R2R-CE and RxR-CE. On R2R-CE Val-Unseen, it achieves 54.1% SR and 52.5% SPL with only 7.75 VLM calls per episode. Compared with direct action prediction, Goal2Pixel improves SR by 21.2 percentage points while requiring 6&times; fewer VLM calls.</p>
     </div>
   </section>
 
@@ -417,29 +417,29 @@ footer {
 
   <section class="section" id="method">
     <h2>Method</h2>
-    <p class="section-note">Overview of the Go2Pixel architecture.</p>
+    <p class="section-note">Overview of the Goal2Pixel architecture.</p>
     <div class="image-slot wide">
-      <img src="resources/images/pipeline.jpg" alt="Go2Pixel method architecture pipeline">
+      <img src="resources/images/pipeline.jpg" alt="Goal2Pixel method architecture pipeline">
     </div>
   </section>
 
   <section class="section" id="realworld">
     <h2>Real-World Experiments</h2>
-    <p class="section-note">16 real-world robot videos from resources/video/real_world. Each page shows a 2 by 2 grid.</p>
+    <p class="section-note">16 real-world robot videos.</p>
     <div class="video-grid realworld" data-video-grid="realworld"></div>
     <div class="pager" data-pager="realworld"></div>
   </section>
 
   <section class="section" id="r2r">
     <h2>R2R-CE Qualitative Videos</h2>
-    <p class="section-note">Reserved for 8 R2R videos from resources/video/r2r. Each page shows a 1 by 2 grid.</p>
+    <p class="section-note">8 R2R videos.</p>
     <div class="video-grid simulation" data-video-grid="r2r"></div>
     <div class="pager" data-pager="r2r"></div>
   </section>
 
   <section class="section" id="rxr">
     <h2>RxR-CE Qualitative Videos</h2>
-    <p class="section-note">Reserved for 8 RxR videos from resources/video/rxr. Each page shows a 1 by 2 grid.</p>
+    <p class="section-note">8 RxR videos.</p>
     <div class="video-grid simulation" data-video-grid="rxr"></div>
     <div class="pager" data-pager="rxr"></div>
   </section>
@@ -447,7 +447,7 @@ footer {
   <section class="section" id="results">
     <h2>Experimental Results</h2>
     <div class="image-slot wide">
-      <img src="resources/images/main_result.png" alt="Go2Pixel experimental results table">
+      <img src="resources/images/main_result.png" alt="Goal2Pixel experimental results table">
     </div>
   </section>
 
@@ -501,10 +501,10 @@ footer {
   <section class="section" id="citation">
     <h2>Citation</h2>
     <div class="citation">
-      <pre>@inproceedings{anonymous2026go2pixel,
+      <pre>@inproceedings{anonymous2026goal2pixel,
   title     = {Goal2Pixel: Grounding Goals to Pixels for Vision-Language Navigation},
   author    = {Anonymous Author(s)},
-  booktitle = {Conference on Robot Learning},
+  booktitle = {IEEE International Conference on Robotics and Automation},
   year      = {2026},
   note      = {Under review}
 }</pre>
@@ -588,7 +588,7 @@ Object.keys(videoSets).forEach((key) => renderVideoPage(key, 1));
 </script>
 
 <footer>
-  Go2Pixel project page. Layout inspired by CMU-VLN.
+  Goal2Pixel project page. Layout inspired by CMU-VLN.
 </footer>
 </body>
 </html>
