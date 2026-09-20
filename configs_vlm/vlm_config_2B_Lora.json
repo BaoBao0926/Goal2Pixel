@@ -1,0 +1,95 @@
+{
+
+  "model_name_or_path": "../../InternVL_cleaned/InternVL3-2B",
+
+  "freeze_backbone": true,
+  "unfreeze_vit_layers": 0,
+  "use_backbone_lora": 16,
+  "freeze_llm": true,
+  "unfreeze_lm_head": false,
+  "use_llm_lora": 256,
+  "freeze_mlp": false,
+  "vision_select_layer": -1,
+
+  "grad_checkpoint": true,
+  "gradient_checkpointing": true,
+  "drop_path_rate": 0.0,
+  "ps_version": "v2",
+  "use_fast_tokenizer": true,
+
+
+
+
+  "max_seq_length": 16000,
+  "force_image_size": 448,
+  "down_sample_ratio": 0.5,
+  "pad2square": true,
+
+  "conv_style": "internvl2_5",
+  "meta_path": "",
+  "use_data_resampling": false,
+  "dynamic_image_size": false,
+  "use_thumbnail": true,
+  "min_dynamic_patch": 1,
+  "max_dynamic_patch": 12,
+
+  "normalize_type": "imagenet",
+
+  "use_packed_ds": true,
+  "num_images_expected": 1000,
+  "max_packed_tokens": 16000,
+  "max_buffer_size": 20,
+  "log_freq": 1000,
+  "strict_mode": false,
+  "replacement": true,
+  "allow_overflow": false,
+  "loss_reduction": "square",
+  "loss_reduction_all_gather": false,
+  "seed": 42,
+
+
+
+
+  "output_dir": "",
+  "overwrite_output_dir": true,
+  "report_to": "wandb",
+  "save_strategy": "steps",
+  "save_total_limit": 3,
+  "save_steps": 0.2,
+  "logging_steps": 1,
+  "evaluation_strategy": "no",
+
+  "dataloader_num_workers": 16,
+  "group_by_length": false,
+  "deepspeed": "zero_stage3_config_acc4.json",
+  "remove_unused_columns":false,
+
+  "do_train": true,
+  "bf16": true,
+  "learning_rate": 1e-4,
+  "weight_decay": 0.01,
+  "warmup_ratio": 0.03,
+  "lr_scheduler_type": "cosine",
+  "max_grad_norm": 1.0,
+
+  "num_train_epochs": 1,
+  "per_device_train_batch_size": 1,
+  "gradient_accumulation_steps": 4,
+  "max_steps": 8000,
+
+  "use_ce_loss": true,
+
+  "use_numeric_aux_loss": false,
+  "lambda_num": 0.05,
+  "use_angle_aux_loss": false,
+  "lambda_angle": 0.03,
+  "use_coord_dist_aux_loss": true,
+  "lambda_coord_dist": 0.01,
+  "coord_dist_sigma": 15.0,
+  "coord_dist_left_max": 30.0,
+  "coord_dist_right_min": 970.0,
+  "coord_dist_stop_min": 940.0,
+
+  "use_padding_embeddings": true,
+  "use_history_trajectory_embeddings": true
+}

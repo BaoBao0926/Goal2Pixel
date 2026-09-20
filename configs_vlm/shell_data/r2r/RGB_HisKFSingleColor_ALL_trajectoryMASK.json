@@ -1,0 +1,23 @@
+{
+  "rgb-r2r": {
+    "root": "../../training_data/data_mp3d_r2r",
+    "annotation": "../../training_data/jsonl/r2r/RGB_HisKFSingleColor_trajMASK.jsonl",
+    "data_augment": false,
+    "repeat_time": 1,
+    "length": 653820
+  },
+  "rgb-rxr-US": {
+    "root": "../../training_data/data_mp3d_rxr",
+    "annotation": "../../training_data/jsonl/rxr-en-US/RGB_HisKFSingleColor_trajMASK.jsonl",
+    "data_augment": false,
+    "repeat_time": 1,
+    "length": 665183
+  },
+  "rgb-rxr-IN": {
+    "root": "../../training_data/data_mp3d_rxr",
+    "annotation": "../../training_data/jsonl/rxr-en-IN/RGB_HisKFSingleColor_trajMASK.jsonl",
+    "data_augment": false,
+    "repeat_time": 1,
+    "length": 1331460
+  }
+}

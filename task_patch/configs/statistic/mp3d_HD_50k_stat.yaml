@@ -1,0 +1,29 @@
+defaults:
+  - /habitat: habitat_config_base
+  - /habitat/task: objectnav
+  - /habitat/simulator/sensor_setups@habitat.simulator.agents.main_agent: rgb_agent
+  - /habitat/dataset/objectnav: mp3d
+  - override /habitat/task/lab_sensors:
+      - compass_sensor
+      - gps_sensor
+      - mp3d_objectgoal_sensor
+  - _self_
+
+
+habitat:
+  env_task: CleanGymHabitatEnv
+
+  dataset:
+    type: "ObjectNav-MP3D"
+    split: train
+    data_path: ../data/datasets/objectnav/objectnav_mp3d_50k/{split}/{split}.json.gz
+    scenes_dir: ../data/scene_datasets/
+
+  task:
+    type: "ObjectNav-MP3D"
+  simulator:
+    type: "Sim-v0"
+    scene_dataset: ../data/scene_datasets/mp3d/mp3d.scene_dataset_config.json
+
+    habitat_sim_v0:
+        physics_config_file: ../data/default.physics_config.json

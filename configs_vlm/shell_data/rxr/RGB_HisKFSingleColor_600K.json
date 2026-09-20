@@ -1,0 +1,9 @@
+{
+  "rgb": {
+    "root": "../../training_data/data_mp3d_rxr",
+    "annotation": "../../training_data/jsonl/rxr-en-US/RGB_HisKFSingleColor_600K.jsonl",
+    "data_augment": false,
+    "repeat_time": 1,
+    "length": 600000
+  }
+}

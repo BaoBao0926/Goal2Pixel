@@ -1,0 +1,57 @@
+# @package _global_
+
+defaults:
+  - /habitat: habitat_config_base
+  - /habitat/task: objectnav
+  - /habitat/simulator/sensor_setups@habitat.simulator.agents.main_agent: rgb_agent
+  - /habitat/dataset/objectnav: hm3d
+  - override /habitat/task/lab_sensors:
+      - clip_objectgoal_sensor
+      - compass_sensor
+      - gps_sensor
+  - override /habitat/task/actions:
+      - stop
+      - move_forward
+      - turn_left
+      - turn_right
+  - _self_
+
+habitat:
+  environment:
+    max_episode_steps: 500
+  dataset:
+    type: "ObjectNav-OVON"
+    split: val_seen
+    data_path: ../data/datasets/ovon/hm3d/{split}/{split}.json.gz
+    scenes_dir: ../data/scene_datasets/
+  task:
+    type: "ObjectNav-v1"
+    measurements:
+      success:
+        success_distance: 0.25
+      distance_to_goal:
+        type: OVONDistanceToGoal
+  simulator:
+    type: "OVONSim-v0"
+    turn_angle: 30
+    agents:
+      main_agent:
+        sim_sensors:
+          rgb_sensor:
+            width: 640
+            height: 480
+            hfov: 79
+            position: [ 0, 0.88, 0 ]
+        height: 0.88
+        radius: 0.18
+        max_climb: 0.0
+    scene_dataset: ../data/scene_datasets/hm3d_v0.2/hm3d_annotated_basis.scene_dataset_config.json
+    navmesh_settings:
+      agent_max_climb: 0.0
+      cell_height: 0.05
+
+    habitat_sim_v0:
+      allow_sliding: True # Whether the agent slides on collisions
+      enable_physics: True  # enable collision
+      gpu_device_id: -1  # Headless mode
+      physics_config_file: ../data/default.physics_config.json
